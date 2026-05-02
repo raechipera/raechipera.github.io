@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rae Chipera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a09;
+      --surface: #141412;
+      --text: #e8e5de;
+      --muted: #9a9990;
+      --accent: #5a9e72;
+      --accent-light: #1a2e20;
+      --border: #2a2a26;
+      --link: #6aace0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .hero {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-text { flex: 1; min-width: 0; }
+
+    .hero-text h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-text .tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition: border-color 0.15s;
+      text-decoration: none;
+    }
+    .pill:hover { border-color: var(--accent); text-decoration: none; color: var(--accent); }
+    .pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    .photo-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section { margin-bottom: 3rem; }
+
+    .section h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .section p {
+      color: var(--text);
+      margin-bottom: 0.9rem;
+      max-width: 640px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: 4px 12px;
+      border-radius: 4px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      transition: border-color 0.15s;
+    }
+
+    .card:hover { border-color: var(--accent); }
+
+    .card-title {
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .card-title a { color: var(--text); }
+    .card-title a:hover { color: var(--accent); text-decoration: none; }
+
+    .card-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+      background: var(--accent-light);
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      margin-top: 5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 540px) {
+      .hero { flex-direction: column-reverse; }
+      .photo-placeholder { width: 80px; height: 80px; font-size: 1.4rem; }
+      .hero-text h1 { font-size: 1.8rem; }
+      .page { padding: 2.5rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Rae Chipera</h1>
+      <p class="tagline">
+        Doctoral candidate · AI researcher · founder of Jaxorik AI Research Group ·
+        former Marine · still deciding if numpy rhymes with lumpy.
+      </p>
+      <div class="hero-links">
+        <a class="pill" href="https://github.com/raechipera" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.104-.253-.447-1.27.096-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.545 1.377.202 2.394.1 2.647.64.698 1.028 1.591 1.028 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          raechipera
+        </a>
+        <a class="pill" href="https://orcid.org/0009-0004-3369-2290" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 5.5a1 1 0 110 2 1 1 0 010-2zm-.5 3h2v7H10v-7zm3.5 0h2.3c2.1 0 3.2 1.4 3.2 3.5S17.9 17.5 15.8 17.5H13.5v-7zm2 5.5c1.1 0 1.7-.7 1.7-2s-.6-2-1.7-2H15v4h.5z"/></svg>
+          ORCID
+        </a>
+        <a class="pill" href="https://arxiv.org/abs/2512.14675" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          arXiv preprint
+        </a>
+        <a class="pill" href="mailto:rachipe@jaxorik.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact
+        </a>
+        <a class="pill" href="/cv.pdf" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          CV
+        </a>
+      </div>
+    </div>
+    <div>
+      <!-- Replace with: <img src="photo.jpg" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border);" /> -->
+      <div class="photo-placeholder">RC</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>About</h2>
+    <p>
+      I'm a doctoral candidate at National University working on reservoir computing and
+      nonlinear dynamics. My dissertation investigates fractal activation functions —
+      Cantor, Weierstrass, Mandelbrot — in Echo State Networks, and what happens when you
+      replace the usual smooth nonlinearities with something mathematically wilder.
+    </p>
+    <p>
+      Before this I did SIGINT in the Marine Corps, deployed to Iraq, trained in Arabic linguistics
+      at DLI, and spent a while in quantitative finance. I also taught myself calculus in a
+      national lab library, which is either a fun origin story or a cry for help depending on your perspective.
+    </p>
+    <p>
+      I also run <a href="https://jaxorik.com" target="_blank">Jaxorik AI Research Group</a>,
+      a WOSB/SDVOSB firm focused on explainable AI for disaster response and critical infrastructure.
+    </p>
+    <div class="tags">
+      <span class="tag">Reservoir computing</span>
+      <span class="tag">Fractal geometry</span>
+      <span class="tag">Echo State Networks</span>
+      <span class="tag">Explainable AI</span>
+      <span class="tag">Critical infrastructure</span>
+      <span class="tag">Nonlinear dynamics</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Research</h2>
+    <div class="card-list">
+      <div class="card">
+        <div class="card-title">
+          <a href="https://arxiv.org/abs/2512.14675" target="_blank">
+            Fractal Activation Functions in Echo State Networks
+          </a>
+          <span class="card-badge">preprint</span>
+        </div>
+        <div class="card-meta">with J. Du &amp; I. Tsapara · arXiv:2512.14675</div>
+        <div class="card-desc">
+          Theoretical analysis of fractal activation functions in Echo State Networks,
+          introducing the Degenerate Echo State Property (d-ESP) as a formal framework
+          for characterizing reservoir dynamics under non-smooth, self-similar activations.
+          Analytical work; empirical validation is the dissertation.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          Dissertation: Fractal Activation Functions and the Degenerate Echo State Property
+          <span class="card-badge">in progress</span>
+        </div>
+        <div class="card-meta">National University · Committee: Du, Tsapara, Dhou</div>
+        <div class="card-desc">
+          Proposal defended April 2026. Full study examines Cantor, Weierstrass, and Mandelbrot
+          activations across multiple benchmark datasets using MANOVA-based statistical design.
+          The goal is a principled theoretical account of when and why fractals work in recurrent architectures.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Teaching</h2>
+    <div class="card-list">
+      <div class="card">
+        <div class="card-title">Private Mathematics Instruction <span class="card-badge">ongoing</span></div>
+        <div class="card-meta">Rio Rancho, NM</div>
+        <div class="card-desc">
+          One-on-one instruction in Geometry, Algebra II, AP Calculus, AP Statistics, and college-level Statistics.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Code</h2>
+    <div class="card-list">
+      <div class="card">
+        <div class="card-title">fractal_reservoir</div>
+        <div class="card-meta">Python · dissertation codebase · public release with journal submission</div>
+        <div class="card-desc">
+          ESN implementation with fractal activation functions. Includes Cantor, Weierstrass,
+          and Mandelbrot variants, memory capacity benchmarks (following Jaeger 2001),
+          and experiment pipelines for CIFAR-10, GZ2, and Gravity Spy.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <a href="https://github.com/raechipera/PyRae" target="_blank">PyRae</a>
+        </div>
+        <div class="card-meta">Python · from-scratch deep learning</div>
+        <div class="card-desc">
+          NumPy-based PyTorch reimplementation built during Carnegie Mellon's Deep Learning bootcamp.
+          Good for understanding what's actually happening under the hood.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <a href="https://github.com/raechipera/satellite-anomaly-detection-demo" target="_blank">satellite-anomaly-detection-demo</a>
+        </div>
+        <div class="card-meta">Python · Jaxorik demo</div>
+        <div class="card-desc">
+          Anomaly detection pipeline for satellite data, built as a technical demonstration
+          for Jaxorik's explainable AI work in disaster response and critical infrastructure.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+    <p>
+      Best reached by email at <a href="mailto:rachipe@jaxorik.com">rachipe@jaxorik.com</a>.
+      I'm interested in collaborations on reservoir computing, explainable AI,
+      and high-stakes decision-making applications. Government contracting inquiries welcome —
+      Jaxorik is registered on SAM.gov (UEI K8ENCCGZ2M13) as WOSB/SDVOSB.
+    </p>
+  </div>
+
+  <footer>
+    Rae Chipera · Rio Rancho, NM · Last updated May 2026
+  </footer>
+
+</div>
+</body>
+</html>
