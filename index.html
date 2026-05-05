@@ -91,22 +91,6 @@
     .pill:hover { border-color: var(--accent); text-decoration: none; color: var(--accent); }
     .pill svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-    .photo-placeholder {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      border: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Lora', serif;
-      font-size: 2.4rem;
-      font-weight: 600;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
     .section { margin-bottom: 3rem; }
 
     .section h2 {
@@ -127,6 +111,12 @@
     }
 
     .section p:last-child { margin-bottom: 0; }
+
+    .section em.lead {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--accent);
+    }
 
     .tags {
       display: flex;
@@ -195,6 +185,19 @@
       text-transform: uppercase;
     }
 
+    .now-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1rem 1.2rem;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .now-box strong { color: var(--text); font-weight: 500; }
+
     footer {
       margin-top: 5rem;
       padding-top: 1.5rem;
@@ -205,7 +208,7 @@
 
     @media (max-width: 540px) {
       .hero { flex-direction: column-reverse; }
-      .photo-placeholder { width: 90px; height: 90px; font-size: 1.6rem; }
+      .hero img { width: 90px !important; height: 90px !important; }
       .hero-text h1 { font-size: 1.8rem; }
       .page { padding: 2.5rem 1.25rem 4rem; }
     }
@@ -224,11 +227,7 @@
       <div class="hero-links">
         <a class="pill" href="https://github.com/raechipera" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.03-2.682-.104-.253-.447-1.27.096-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.026 2.747-1.026.545 1.377.202 2.394.1 2.647.64.698 1.028 1.591 1.028 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          raechipera
-        </a>
-        <a class="pill" href="https://www.linkedin.com/in/rae-chipera" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
+          Code
         </a>
         <a class="pill" href="https://orcid.org/0009-0004-3369-2290" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 5.5a1 1 0 110 2 1 1 0 010-2zm-.5 3h2v7H10v-7zm3.5 0h2.3c2.1 0 3.2 1.4 3.2 3.5S17.9 17.5 15.8 17.5H13.5v-7zm2 5.5c1.1 0 1.7-.7 1.7-2s-.6-2-1.7-2H15v4h.5z"/></svg>
@@ -236,9 +235,13 @@
         </a>
         <a class="pill" href="https://arxiv.org/abs/2512.14675" target="_blank">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          arXiv preprint
+          arXiv
         </a>
-        <a class="pill" href="mailto:rachipe@jaxorik.com">
+        <a class="pill" href="https://www.linkedin.com/in/rae-chipera" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="pill" href="mailto:rachipe+web@jaxorik.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           contact
         </a>
@@ -256,21 +259,19 @@
   <div class="section">
     <h2>About</h2>
     <p>
-      Hi. I'm a doctoral candidate at National University. I work on reservoir computing and
-      nonlinear dynamics. My dissertation investigates fractal activation functions —
-      Cantor, Weierstrass, Mandelbrot — in Echo State Networks, and what happens when you
-      replace the usual smooth nonlinearities with something mathematically wilder.
+      Hi. I'm a doctoral candidate at National University working on reservoir computing
+      and nonlinear dynamics. My dissertation investigates fractal activation functions
+      in Echo State Networks: what happens when you replace the usual smooth nonlinearities
+      with something mathematically wilder.
     </p>
     <p>
-      <i>
-      In other words, I build machine learning models that don't break when the data is 
-      chaotic or messy.
-      </i>
+      <i>In other words, I build machine learning models that don't break when the data is
+      chaotic or messy.</i>
     </p>
     <p>
       Before this, I worked in Marine Corps Intelligence, deployed to Iraq, trained in Arabic
-      at DLI, and spent a while in quantitative finance. I also taught myself calculus partly while
-      deployed and partly in a national lab library.
+      at DLI, and spent a while in quantitative finance. I taught myself calculus partly
+      while deployed and partly in a national lab library. The path here was not a straight line.
     </p>
     <p>
       I also run <a href="https://jaxorik.com" target="_blank">Jaxorik AI Research Group</a>,
@@ -283,6 +284,16 @@
       <span class="tag">Explainable AI</span>
       <span class="tag">Critical infrastructure</span>
       <span class="tag">Nonlinear dynamics</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Currently</h2>
+    <div class="now-box">
+      <strong>Spring 2026.</strong> Proposal defended in April. Filing IRB exemption,
+      finishing empirical runs on CIFAR-10, Galaxy Zoo 2, and Gravity Spy (LIGO detector
+      glitches). Prepping a manuscript for submission to <em>Neural Networks</em>.
+      Always happy to hear from people working on similar problems — see <em>Contact</em>.
     </div>
   </div>
 
@@ -307,14 +318,51 @@
 
       <div class="card">
         <div class="card-title">
-          Dissertation: Beyond Smooth Activations: Irregular Functions for Modeling Chaotic Data Patterns in Neural Networks
-          <span class="card-badge">in progress</span>
+          Beyond Smooth Activations: Irregular Functions for Modeling Chaotic Data Patterns in Neural Networks
+          <span class="card-badge">dissertation · in progress</span>
         </div>
-        <div class="card-meta">National University · Committee: Du, Tsapara, Dhou</div>
+        <div class="card-meta">National University · Committee: Du, Tsapara, Dhou · proposal defended April 2026</div>
         <div class="card-desc">
-          Proposal defended April 2026. Full study examines Cantor, Weierstrass, Logistic Map, Mandelbrot
-          activations across multiple benchmark datasets using MANOVA-based statistical design.
-          The goal is a principled theoretical account of when and why fractals work in recurrent architectures.
+          Empirical study of Cantor, Weierstrass, Logistic Map, and Mandelbrot activations
+          across three benchmarks: CIFAR-10 (control), Galaxy Zoo 2 (morphological classification),
+          and Gravity Spy (LIGO interferometer glitch detection). MANOVA-based statistical design.
+          The goal is a principled theoretical account of when and why fractals work in
+          recurrent architectures.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Code</h2>
+    <div class="card-list">
+      <div class="card">
+        <div class="card-title">fractal_reservoir <span class="card-badge">releases with journal submission</span></div>
+        <div class="card-meta">Python · dissertation codebase</div>
+        <div class="card-desc">
+          ESN implementation with fractal activation functions. Includes Cantor, Weierstrass,
+          and Mandelbrot variants, memory capacity benchmarks (following Jaeger 2001),
+          and experiment pipelines for CIFAR-10, GZ2, and Gravity Spy.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <a href="https://github.com/raechipera/PyRae" target="_blank">PyRae</a>
+        </div>
+        <div class="card-meta">Python · from-scratch deep learning</div>
+        <div class="card-desc">
+          NumPy-based PyTorch re-implementation. Good for understanding what's actually
+          happening under the black box.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">
+          <a href="https://github.com/raechipera/satellite-anomaly-detection-demo" target="_blank">satellite-anomaly-detection-demo</a>
+        </div>
+        <div class="card-meta">Python · Jaxorik demo</div>
+        <div class="card-desc">
+          Anomaly detection pipeline for satellite data, built as a technical demonstration
+          for Jaxorik's explainable AI work in disaster response and critical infrastructure.
         </div>
       </div>
     </div>
@@ -334,47 +382,37 @@
   </div>
 
   <div class="section">
-    <h2>Code</h2>
-    <div class="card-list">
-      <div class="card">
-        <div class="card-title">fractal_reservoir</div>
-        <div class="card-meta">Python · dissertation codebase · public release with journal submission</div>
-        <div class="card-desc">
-          ESN implementation with fractal activation functions. Includes Cantor, Weierstrass,
-          and Mandelbrot variants, memory capacity benchmarks (following Jaeger 2001),
-          and experiment pipelines for CIFAR-10, GZ2, and Gravity Spy.
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title">
-          <a href="https://github.com/raechipera/PyRae" target="_blank">PyRae</a>
-        </div>
-        <div class="card-meta">Python · from-scratch deep learning</div>
-        <div class="card-desc">
-          NumPy-based PyTorch re-implementation. Good for understanding what's actually 
-          happening under the black box.
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-title">
-          <a href="https://github.com/raechipera/satellite-anomaly-detection-demo" target="_blank">satellite-anomaly-detection-demo</a>
-        </div>
-        <div class="card-meta">Python · Jaxorik demo</div>
-        <div class="card-desc">
-          Anomaly detection pipeline for satellite data, built as a technical demonstration
-          for Jaxorik's explainable AI work in disaster response and critical infrastructure.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
     <h2>Contact</h2>
     <p>
-      Best reached by email at <a href="mailto:rachipe@jaxorik.com">rachipe@jaxorik.com</a>.
-      I'm interested in collaborations on reservoir computing, explainable AI,
-      and high-stakes decision-making applications. Government contracting inquiries welcome —
-      Jaxorik is registered on SAM.gov (UEI K8ENCCGZ2M13) as WOSB/SDVOSB.
+      Best reached by email at <a href="mailto:rachipe+web@jaxorik.com">rachipe+web@jaxorik.com</a>.
+      I reply to real emails from real people; please write one.
+    </p>
+    <p><em class="lead">Especially interested in hearing from:</em></p>
+    <p>
+      <strong>Researchers working on nonlinear dynamics in reservoir computing.</strong>
+      Theory, architectures, training methods, anything adjacent. If you've thought
+      seriously about why ESNs do what they do, I want to talk.
+    </p>
+    <p>
+      <strong>People with "fussy" datasets that resist clean modeling.</strong>
+      Plasma physics, seismology and plate tectonics, space weather, turbulent flow,
+      neural recordings — anything chaotic, non-stationary, or otherwise allergic to
+      standard architectures. I'd like to test fractal-activation ESNs on your data and
+      see what happens.
+    </p>
+    <p>
+      <em class="lead">What you get if we collaborate:</em>
+      I do the modeling work, help write up the results, and stay non-flaky through to
+      publication. You get full access to the code and trained models. Transparency is
+      the whole point of research collaboration, so it would be weird to hoard the 
+      artifacts.
+    </p>
+    <p>
+      <em class="lead">If you're with a government agency or federal contractor:</em>
+      please route inquiries through my company instead.
+      <a href="https://jaxorik.com" target="_blank">Jaxorik AI Research Group</a> is
+      registered on SAM.gov (UEI K8ENCCGZ2M13) as WOSB/SDVOSB and is set up to handle
+      the contracting side properly.
     </p>
   </div>
 
